@@ -1,22 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router'; // 1. Importar RouterModule
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CitaListComponent } from './components/cita-list/cita-list.component';
+import { FormularioCitaComponent } from './components/formulario-cita/formulario-cita.component';
+import { ListadoCitasComponent } from './components/listado-citas/listado-citas.component';
+import { ResumenCitasComponent } from './components/resumen-citas/resumen-citas.component';
+import { CitasContainerComponent } from './components/citas-container/citas-container.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent // CitaListComponent NO va aquí por ser standalone
+    AppComponent,
+    FormularioCitaComponent,
+    ListadoCitasComponent,
+    ResumenCitasComponent,
+    CitasContainerComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    RouterModule, // 2. Resuelve el error de 'router-outlet'
-    CitaListComponent // 3. Se importa aquí por ser standalone
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
