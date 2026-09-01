@@ -1,0 +1,55 @@
+<div class="form-container">
+  <h2>📅 Reservar Nueva Cita</h2>
+  
+  <form [formGroup]="citaForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="nombrePaciente">Nombre del Paciente</label>
+      <input type="text" id="nombrePaciente" formControlName="nombrePaciente" placeholder="Ej. Juan Pérez">
+      <div class="error-msg" *ngIf="citaForm.get('nombrePaciente')?.invalid && citaForm.get('nombrePaciente')?.touched">
+        El nombre es obligatorio (mínimo 3 caracteres).
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dpi">DPI (13 dígitos)</label>
+      <input type="text" id="dpi" formControlName="dpi" placeholder="Ej. 3012345670101" maxlength="13">
+      <div class="error-msg" *ngIf="citaForm.get('dpi')?.invalid && citaForm.get('dpi')?.touched">
+        El DPI debe contener exactamente 13 dígitos numéricos.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="telefono">Teléfono (8 dígitos)</label>
+      <input type="tel" id="telefono" formControlName="telefono" placeholder="Ej. 55123456" maxlength="8">
+      <div class="error-msg" *ngIf="citaForm.get('telefono')?.invalid && citaForm.get('telefono')?.touched">
+        El teléfono debe contener exactamente 8 dígitos numéricos.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="especialidad">Especialidad Médica</label>
+      <select id="especialidad" formControlName="especialidad">
+        <option value="">Seleccione una especialidad...</option>
+        <option value="Medicina General">Medicina General</option>
+        <option value="Pediatría">Pediatría</option>
+        <option value="Cardiología">Cardiología</option>
+        <option value="Dermatología">Dermatología</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fecha">Fecha de la Cita</label>
+        <input type="date" id="fecha" formControlName="fecha">
+      </div>
+
+      <div class="form-group">
+        <label for="hora">Hora</label>
+        <input type="time" id="hora" formControlName="hora">
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit" [disabled]="citaForm.invalid">Guardar Cita</button>
+  </form>
+</div>
