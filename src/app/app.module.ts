@@ -3,18 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { App } from './app.component';
+import { FormularioCitaComponent } from './components/formulario-cita/formulario-cita.component';
+import { ListadoCitasComponent } from './components/listado-citas/listado-citas.component';
+import { ResumenCitasComponent } from './components/resumen-citas/resumen-citas.component';
 
 @NgModule({
-  declarations: [
-    App
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-  ],
-  bootstrap: [App]
+  declarations: [App, FormularioCitaComponent, ListadoCitasComponent, ResumenCitasComponent],
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [provideBrowserGlobalErrorListeners()],
+  bootstrap: [App],
 })
-export class AppModule { }
+export class AppModule {}
