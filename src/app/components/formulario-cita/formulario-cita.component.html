@@ -1,1 +1,111 @@
-<p>formulario-cita works!</p>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Nombre del paciente</label>
+    <input formControlName="nombrePaciente" type="text" />
+    <div *ngIf="nombrePaciente?.touched && nombrePaciente?.errors?.required">
+      Nombre es obligatorio.
+    </div>
+    <div *ngIf="nombrePaciente?.touched && nombrePaciente?.errors?.minlength">
+      Mínimo 5 caracteres.
+    </div>
+  </div>
+
+  <div>
+    <label>DPI</label>
+    <input formControlName="dpi" type="text" />
+    <div *ngIf="dpi?.touched && dpi?.errors?.required">
+      DPI es obligatorio.
+    </div>
+    <div *ngIf="dpi?.touched && dpi?.errors?.pattern">
+      DPI debe tener exactamente 13 dígitos.
+    </div>
+  </div>
+
+  <div>
+    <label>Correo electrónico</label>
+    <input formControlName="correo" type="email" />
+    <div *ngIf="correo?.touched && correo?.errors?.email">
+      Formato de correo inválido.
+    </div>
+  </div>
+
+  <div>
+    <label>Teléfono</label>
+    <input formControlName="telefono" type="text" />
+    <div *ngIf="telefono?.touched && telefono?.errors?.required">
+      Teléfono es obligatorio.
+    </div>
+    <div *ngIf="telefono?.touched && telefono?.errors?.pattern">
+      Teléfono debe tener exactamente 8 dígitos.
+    </div>
+  </div>
+
+  <div>
+    <label>Especialidad</label>
+    <select formControlName="especialidad">
+      <option value="">Seleccione</option>
+      <option *ngFor="let esp of especialidades" [value]="esp">{{ esp }}</option>
+    </select>
+    <div *ngIf="especialidad?.touched && especialidad?.errors?.required">
+      Especialidad es obligatoria.
+    </div>
+  </div>
+
+  <div>
+    <label>Médico</label>
+    <select formControlName="medico">
+      <option value="">Seleccione</option>
+      <option *ngFor="let m of medicosFiltrados" [value]="m">{{ m }}</option>
+    </select>
+    <div *ngIf="medico?.touched && medico?.errors?.required">
+      Médico es obligatorio.
+    </div>
+  </div>
+
+  <div>
+    <label>Fecha</label>
+    <input formControlName="fecha" type="date" />
+    <div *ngIf="fecha?.touched && fecha?.errors?.required">
+      Fecha es obligatoria.
+    </div>
+    <div *ngIf="fecha?.touched && fecha?.errors?.fechaAnterior">
+      No puede ser anterior a hoy.
+    </div>
+  </div>
+
+  <div>
+    <label>Hora</label>
+    <input formControlName="hora" type="time" />
+    <div *ngIf="hora?.touched && hora?.errors?.required">
+      Hora es obligatoria.
+    </div>
+  </div>
+
+  <div>
+    <label>Motivo de consulta</label>
+    <textarea formControlName="motivo" rows="3"></textarea>
+    <div *ngIf="motivo?.touched && motivo?.errors?.required">
+      Motivo es obligatorio.
+    </div>
+    <div *ngIf="motivo?.touched && motivo?.errors?.minlength">
+      Mínimo 10 caracteres.
+    </div>
+    <div *ngIf="motivo?.touched && motivo?.errors?.maxlength">
+      Máximo 200 caracteres.
+    </div>
+    <div *ngIf="motivo?.value">
+      {{ motivo.value.length }} / 200
+    </div>
+  </div>
+
+  <div>
+    <label>
+      <input formControlName="primeraConsulta" type="checkbox" />
+      Primera consulta
+    </label>
+  </div>
+
+  <button type="submit" [disabled]="formulario.invalid">
+    {{ modoEdicion ? 'Actualizar cita' : 'Guardar cita' }}
+  </button>
+</form>
