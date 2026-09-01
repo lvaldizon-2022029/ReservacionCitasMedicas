@@ -1,20 +1,22 @@
-import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router'; // 1. Importar RouterModule
 
+import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { App } from './app.component';
+import { CitaListComponent } from './components/cita-list/cita-list.component';
 
 @NgModule({
   declarations: [
-    App
+    AppComponent // CitaListComponent NO va aquí por ser standalone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule, // 2. Resuelve el error de 'router-outlet'
+    CitaListComponent // 3. Se importa aquí por ser standalone
   ],
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-  ],
-  bootstrap: [App]
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
