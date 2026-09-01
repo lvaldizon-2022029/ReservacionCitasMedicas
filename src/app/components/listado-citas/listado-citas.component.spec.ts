@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ListadoCitas } from './listado-citas.component';
+import { ListadoCitasComponent } from './listado-citas.component';
 
-describe('ListadoCitas', () => {
-  let component: ListadoCitas;
-  let fixture: ComponentFixture<ListadoCitas>;
+describe('ListadoCitasComponent', () => {
+  let component: ListadoCitasComponent;
+  let fixture: ComponentFixture<ListadoCitasComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ListadoCitas],
+      declarations: [ListadoCitasComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ListadoCitas);
+    fixture = TestBed.createComponent(ListadoCitasComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

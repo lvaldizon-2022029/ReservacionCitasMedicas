@@ -1,16 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormularioCita } from './formulario-cita.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormularioCitaComponent } from './formulario-cita.component';
 
-describe('FormularioCita', () => {
-  let component: FormularioCita;
-  let fixture: ComponentFixture<FormularioCita>;
+describe('FormularioCitaComponent', () => {
+  let component: FormularioCitaComponent;
+  let fixture: ComponentFixture<FormularioCitaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FormularioCita],
+      declarations: [FormularioCitaComponent],
+      imports: [ReactiveFormsModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FormularioCita);
+    fixture = TestBed.createComponent(FormularioCitaComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

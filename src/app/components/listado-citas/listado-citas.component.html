@@ -1,1 +1,37 @@
-<p>listado-citas works!</p>
+<div class="listado-container">
+  <h2>📋 Listado de Citas Médicas</h2>
+
+  <div class="table-responsive">
+    <table class="citas-table">
+      <thead>
+        <tr>
+          <th>Paciente</th>
+          <th>DPI</th>
+          <th>Teléfono</th>
+          <th>Especialidad</th>
+          <th>Fecha / Hora</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas$ | async">
+          <td>{{ cita.nombrePaciente }}</td>
+          <td>{{ cita.dpi }}</td>
+          <td>{{ cita.telefono }}</td>
+          <td>{{ cita.especialidad }}</td>
+          <td>{{ cita.fecha }} - {{ cita.hora }}</td>
+          <td>
+            <span class="badge" [ngClass]="cita.estado.toLowerCase()">
+              {{ cita.estado }}
+            </span>
+          </td>
+          <td>
+            <button class="btn-atendida" (click)="cambiarEstado(cita.id, 'Atendida')">Atender</button>
+            <button class="btn-cancelada" (click)="cambiarEstado(cita.id, 'Cancelada')">Cancelar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
