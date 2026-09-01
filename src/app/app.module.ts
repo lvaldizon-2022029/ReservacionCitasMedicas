@@ -1,8 +1,8 @@
-import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { App } from './app.component';
 import { FormularioCitaComponent } from './components/formulario-cita/formulario-cita.component';
 import { ListadoCitasComponent } from './components/listado-citas/listado-citas.component';
 import { ResumenCitasComponent } from './components/resumen-citas/resumen-citas.component';
@@ -11,15 +11,18 @@ import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
-    App,
+    AppComponent,
     FormularioCitaComponent,
     ListadoCitasComponent,
     ResumenCitasComponent,
     CitasContainerComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [provideBrowserGlobalErrorListeners()],
-  bootstrap: [App],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
