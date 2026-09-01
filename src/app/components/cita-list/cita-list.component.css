@@ -1,0 +1,24 @@
+.list-container { background: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.summary-cards { display: flex; gap: 16px; margin-bottom: 24px; }
+.card { flex: 1; padding: 16px; border-radius: 6px; text-align: center; color: white; }
+.card h3 { margin: 0 0 8px 0; font-size: 14px; text-transform: uppercase; }
+.card p { margin: 0; font-size: 24px; font-weight: bold; }
+.card-total { background-color: #2c3e50; }
+.card-programada { background-color: #0275d8; }
+.card-atendida { background-color: #5cb85c; }
+.card-cancelada { background-color: #d9534f; }
+.list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.citas-table { width: 100%; border-collapse: collapse; }
+.citas-table th, .citas-table td { padding: 12px; border-bottom: 1px solid #eeeeee; text-align: left; }
+.citas-table th { background-color: #f8f9fa; }
+.badge { padding: 4px 8px; border-radius: 12px; font-size: 12px; color: white; font-weight: bold; }
+.badge.programada { background-color: #0275d8; }
+.badge.atendida { background-color: #5cb85c; }
+.badge.cancelada { background-color: #d9534f; }
+.actions-cell { display: flex; gap: 6px; flex-wrap: wrap; }
+.btn-action { padding: 4px 8px; border: none; border-radius: 4px; font-size: 12px; cursor: pointer; color: white; }
+.btn-edit { background-color: #f0ad4e; }
+.btn-attend { background-color: #5cb85c; }
+.btn-cancel { background-color: #6c757d; }
+.btn-delete { background-color: #d9534f; }
+.no-data { text-align: center; color: #777777; padding: 24px; }
